@@ -1,0 +1,27 @@
+.body-container {
+  max-width: var(--max-content-w);
+  padding-inline: var(--p-content-global);
+}
+
+.body-container h1 {
+  max-width: 30rem;
+  word-wrap: break-word;
+}
+.body-container h2 {
+  max-width: 27rem;
+  font-size: var(--fs-h2);
+  color: #888; /* Grigio chiaro in formato esadecimale */
+}
+
+.hero-section {
+  margin-top: 6rem;
+}
+.playIcon {
+  color: white;
+  margin-right: 8px;
+}
+.hero-image {
+  width: 45%;
+  position: relative;
+  top: -15%;
+}

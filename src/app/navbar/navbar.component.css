@@ -1,0 +1,16 @@
+.logo {
+  width: 40px;
+}
+
+nav {
+  padding-top: 1rem;
+  padding-inline: var(--p-content-global);
+}
+
+.nav-all-container {
+  max-width: var(--max-content-w);
+  margin-inline: auto;
+}
+
+.logo-container {
+}

@@ -1,1 +1,57 @@
 /* You can add global styles to this file, and also import other style files */
+@import "./flags.css";
+:root {
+  --max-content-w: 1400px;
+  --p-content-global: 4rem;
+  --fs-h2: 0.9rem;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+nav .p-chip {
+  background-color: #2fb2ac;
+  border-radius: 100vh;
+  transition: all 0.2s ease-in-out;
+}
+
+nav .p-chip:hover {
+  background-color: #2fb2ab00;
+  border-radius: 100vh;
+  outline: 1px solid #2fb2ac;
+}
+
+nav .p-chip:hover {
+  background-color: #2fb2ab00;
+  border-radius: 100vh;
+  outline: 1px solid #2fb2ac;
+}
+nav .p-chip:hover > a {
+  color: #2fb2ac !important;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.bolder {
+  font-weight: 800;
+}
+body .main-btn {
+  background-color: #2fb2ac;
+  padding-block: 10px;
+  padding-inline: 1rem;
+  border-radius: 6px;
+  margin-top: 20px;
+  display: inline-block;
+}
