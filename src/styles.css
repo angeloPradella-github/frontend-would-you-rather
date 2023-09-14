@@ -3,7 +3,8 @@
 :root {
   --max-content-w: 1400px;
   --p-content-global: 4rem;
-  --fs-h2: 0.9rem;
+  --fs-h2: 1rem;
+  --clr-primary: #2fb2ac;
 }
 html,
 body {

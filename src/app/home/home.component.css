@@ -4,11 +4,12 @@
 }
 
 .body-container h1 {
-  max-width: 30rem;
+  max-width: 35rem;
   word-wrap: break-word;
+  font-size: 3rem;
 }
 .body-container h2 {
-  max-width: 27rem;
+  max-width: 30rem;
   font-size: var(--fs-h2);
   color: #888; /* Grigio chiaro in formato esadecimale */
 }
@@ -24,4 +25,77 @@
   width: 45%;
   position: relative;
   top: -15%;
+}
+/* ------------------------------------------------------------- */
+.top-games-showcase {
+  border-radius: 1rem;
+  box-shadow: -30px -100px 120px #2fb2ab3f, 10px 10px 10px rgba(0, 0, 0, 0.052);
+}
+
+.showcase-left-col {
+  background-color: var(--clr-primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top-left-radius: inherit;
+  border-bottom-left-radius: inherit;
+}
+
+.showcase-left-col p {
+  color: #ffffffc8;
+  text-align: center;
+  font-size: 12px;
+  padding-inline: 8px;
+  margin-bottom: 0;
+}
+
+.showcase-left-col .text-wrap {
+  max-width: 12rem;
+}
+
+.card {
+  padding-inline: 1.2rem;
+  padding-block: 1.9rem;
+  border-radius: 1.5rem;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.2s ease-in-out;
+}
+
+.card:hover {
+  background-color: var(--clr-primary);
+}
+
+.card:hover span,
+.card:hover fa-icon {
+  color: white !important;
+}
+
+.card .game-title {
+  font-weight: 600;
+  font-size: 1.8rem;
+}
+
+.card .title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 19px;
+}
+
+.card .game-logo {
+  width: 60px; /* Assicura che l'immagine sia quadrata */
+  border-radius: 50%; /* Rende l'immagine circolare */
+  object-fit: cover; /* Scalare l'immagine per adattarla al quadrato */
+  aspect-ratio: 1;
+}
+
+.card .start {
+  font-weight: 500;
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+.card .start > fa-icon {
+  color: rgba(4, 4, 4, 0.52);
 }
