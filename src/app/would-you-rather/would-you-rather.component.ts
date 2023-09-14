@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-would-you-rather',
@@ -8,19 +9,41 @@ import { HttpClient } from '@angular/common/http';
 })
 export class WouldYouRatherComponent implements OnInit {
   jsonData: any;
+  currentChoices: string | undefined = 'ai';
+
   ngOnInit() {
-    this.http
-      .get('http://localhost:8084/GetQuestions?questionId=1')
-      .subscribe((data: any) => {
-        this.jsonData = data;
-      });
+    let endpoint: string = '';
+    if (this.currentChoices == 'normal') {
+      const randomNumber = Math.floor(Math.random() * 10) + 1;
+      endpoint = environment.normalEndpoint + randomNumber;
+    } else if (this.currentChoices == 'ai') {
+      const lang = 'italian';
+      endpoint = environment.aiEndpoint + lang;
+    }
+    this.http.get(endpoint).subscribe((data: any) => {
+      this.jsonData = data;
+    });
   }
   constructor(private http: HttpClient) {}
+
   updateData() {
-    this.http
-      .get('http://localhost:8084/GetAIResponse?language=english')
-      .subscribe((data: any) => {
-        this.jsonData = data;
-      });
+    let endpoint: string = '';
+    if (this.currentChoices == 'normal') {
+      const randomNumber = Math.floor(Math.random() * 10) + 1;
+      endpoint = environment.normalEndpoint + randomNumber;
+    } else if (this.currentChoices == 'ai') {
+      const lang = 'italian';
+      endpoint = environment.aiEndpoint + lang;
+    }
+    this.http.get(endpoint).subscribe((data: any) => {
+      this.jsonData = data;
+    });
+  }
+
+  switchChoicesType() {
+    // Cambia il valore corrente di currentChoices
+    this.currentChoices = this.currentChoices === 'ai' ? 'normal' : 'ai';
+    // Aggiorna i dati in base alla nuova scelta
+    this.updateData();
   }
 }
