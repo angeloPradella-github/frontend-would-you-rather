@@ -13,7 +13,7 @@
           class="col-md-6 d-flex align-items-center justify-content-start left-col ps-0"
         >
           <h1 class="left-choice-txt mb-0">
-            Eat ice-cream for the rest of your life
+            {{ jsonData?.[0]?.question_text1 }}
           </h1>
           <div class="circle">
             <span id="or-text">OR</span>
@@ -24,10 +24,11 @@
           class="col-md-6 d-flex align-items-center justify-content-end right-col pe-0"
         >
           <h1 class="right-choice-txt mb-0">
-            Eat pizza for the rest of your life aaaa
+            {{ jsonData?.[0]?.question_text2 }}
           </h1>
         </div>
       </div>
     </section>
+    <button (click)="updateData()">Aggiorna</button>
   </body>
 </html>

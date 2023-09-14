@@ -13,9 +13,15 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import 'bootstrap/dist/js/bootstrap.js';
 import { WouldYouRatherComponent } from './would-you-rather/would-you-rather.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, NavbarComponent, WouldYouRatherComponent],
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    NavbarComponent,
+    WouldYouRatherComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -25,6 +31,7 @@ import { WouldYouRatherComponent } from './would-you-rather/would-you-rather.com
     ReactiveFormsModule,
     ChipModule,
     FontAwesomeModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
