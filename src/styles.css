@@ -45,6 +45,11 @@ nav .p-chip:hover > a {
   font-weight: 600;
 }
 
+.body-container {
+  max-width: var(--max-content-w);
+  padding-inline: var(--p-content-global);
+}
+
 .bolder {
   font-weight: 800;
 }

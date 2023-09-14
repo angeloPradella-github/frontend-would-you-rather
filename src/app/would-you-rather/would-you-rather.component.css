@@ -1,0 +1,38 @@
+.wyr-container {
+  background: linear-gradient(
+    90deg,
+    rgba(1, 219, 255, 1) 0%,
+    rgba(246, 9, 23, 1) 100%
+  );
+}
+.wyr-container .right-col {
+  border-left: 2px solid #fff;
+}
+.wyr-container .left-col {
+  border-right: 2px solid #fff;
+  position: relative;
+}
+
+.wyr-container h1 {
+  color: rgb(255, 255, 255);
+  width: 90%;
+  text-align: center;
+  font-weight: 500;
+}
+
+.wyr-container .circle {
+  position: absolute;
+  top: calc(50% - 33px);
+  left: calc(100% - 34px);
+  width: 70px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.8rem;
+  color: var(--clr-primary);
+}
