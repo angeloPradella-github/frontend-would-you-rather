@@ -18,7 +18,7 @@ export class WouldYouRatherComponent implements OnInit {
   constructor(private http: HttpClient) {}
   updateData() {
     this.http
-      .get('http://localhost:8084/GetQuestions?questionId=1')
+      .get('http://localhost:8084/GetAIResponse?language=english')
       .subscribe((data: any) => {
         this.jsonData = data;
       });
