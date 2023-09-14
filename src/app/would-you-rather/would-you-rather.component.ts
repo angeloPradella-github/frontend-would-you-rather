@@ -9,11 +9,11 @@ import { environment } from '../../environments/environment';
 })
 export class WouldYouRatherComponent implements OnInit {
   jsonData: any;
-  currentChoices: string | undefined = 'ai';
+  currentChoices: string | undefined = 'ng';
 
   ngOnInit() {
     let endpoint: string = '';
-    if (this.currentChoices == 'normal') {
+    if (this.currentChoices == 'ng') {
       const randomNumber = Math.floor(Math.random() * 10) + 1;
       endpoint = environment.normalEndpoint + randomNumber;
     } else if (this.currentChoices == 'ai') {
@@ -28,7 +28,7 @@ export class WouldYouRatherComponent implements OnInit {
 
   updateData() {
     let endpoint: string = '';
-    if (this.currentChoices == 'normal') {
+    if (this.currentChoices == 'ng') {
       const randomNumber = Math.floor(Math.random() * 10) + 1;
       endpoint = environment.normalEndpoint + randomNumber;
     } else if (this.currentChoices == 'ai') {
@@ -42,8 +42,16 @@ export class WouldYouRatherComponent implements OnInit {
 
   switchChoicesType() {
     // Cambia il valore corrente di currentChoices
-    this.currentChoices = this.currentChoices === 'ai' ? 'normal' : 'ai';
+    this.currentChoices = this.currentChoices === 'ai' ? 'ng' : 'ai';
     // Aggiorna i dati in base alla nuova scelta
     this.updateData();
+  }
+
+  getTooltipText(): string {
+    if (this.currentChoices === 'ai') {
+      return 'Switch to Normal Generation';
+    } else {
+      return 'Switch to AI Generation';
+    }
   }
 }

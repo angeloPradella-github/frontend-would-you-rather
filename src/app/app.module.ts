@@ -9,6 +9,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DropdownModule } from 'primeng/dropdown';
 import { ChipModule } from 'primeng/chip';
+import { TooltipModule } from 'primeng/tooltip';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import 'bootstrap/dist/js/bootstrap.js';
@@ -32,6 +33,7 @@ import { HttpClientModule } from '@angular/common/http';
     ChipModule,
     FontAwesomeModule,
     HttpClientModule,
+    TooltipModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -37,3 +37,30 @@
   font-size: 1.8rem;
   color: var(--clr-primary);
 }
+
+/* --------------------------------------- */
+
+.switch-choice-type button {
+  position: absolute;
+  top: calc(30% - 33px);
+  left: calc(100% - 34px);
+  width: 70px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.8rem;
+  color: var(--clr-primary);
+  border: 1px solid rgba(173, 173, 173, 0.253);
+  text-transform: uppercase;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+  transition: translateY 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55),
+    transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+.switch-choice-type button:hover {
+  transform: translateY(-10%) scale(1.05);
+}
