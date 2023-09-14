@@ -12,9 +12,10 @@ import { ChipModule } from 'primeng/chip';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import 'bootstrap/dist/js/bootstrap.js';
+import { WouldYouRatherComponent } from './would-you-rather/would-you-rather.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, NavbarComponent],
+  declarations: [AppComponent, HomeComponent, NavbarComponent, WouldYouRatherComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

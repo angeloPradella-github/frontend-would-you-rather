@@ -3,8 +3,12 @@
 }
 
 nav {
-  padding-top: 1rem;
+  padding-block: 1rem;
   padding-inline: var(--p-content-global);
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(10px);
+  z-index: 2;
 }
 
 .nav-all-container {
