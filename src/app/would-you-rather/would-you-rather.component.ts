@@ -41,9 +41,7 @@ export class WouldYouRatherComponent implements OnInit {
   }
 
   switchChoicesType() {
-    // Cambia il valore corrente di currentChoices
     this.currentChoices = this.currentChoices === 'ai' ? 'ng' : 'ai';
-    // Aggiorna i dati in base alla nuova scelta
     this.updateData();
   }
 

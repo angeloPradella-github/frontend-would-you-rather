@@ -9,6 +9,8 @@ nav {
   top: 0;
   backdrop-filter: blur(10px);
   z-index: 2;
+  transition: color 0.3s ease; /* This ensures a smooth transition over 300ms */
+  color: black;
 }
 
 .nav-all-container {

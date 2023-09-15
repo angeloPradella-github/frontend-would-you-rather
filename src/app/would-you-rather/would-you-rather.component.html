@@ -10,7 +10,8 @@
       <div class="row h-100">
         <!-- Colonna sinistra -->
         <div
-          class="col-md-6 d-flex align-items-center justify-content-start left-col ps-3"
+          class="col-md-6 d-flex align-items-center justify-content-center left-col ps-3 flex-column cursor-pointer"
+          (click)="updateData()"
         >
           <!-- SWITCH CHOICE TYPE GENERATION -->
           <div class="switch-choice-type">
@@ -26,6 +27,8 @@
           <h1 class="left-choice-txt mb-0">
             {{ jsonData?.question_text1 }}
           </h1>
+          <!-- percentuale -->
+          <div class="percentage-container"><span>50%</span></div>
           <!-- or circle -->
           <div class="circle">
             <span id="or-text">OR</span>
@@ -33,14 +36,16 @@
         </div>
         <!-- Colonna destra -->
         <div
-          class="col-md-6 d-flex align-items-center justify-content-end right-col pe-3"
+          class="col-md-6 d-flex flex-column align-items-center justify-content-center right-col pe-3 cursor-pointer"
+          (click)="updateData()"
         >
           <h1 class="right-choice-txt mb-0">
             {{ jsonData?.question_text2 }}
           </h1>
+          <!-- percentuale -->
+          <div class="percentage-container"><span>50%</span></div>
         </div>
       </div>
     </section>
-    <button class="btn btn-primary" (click)="updateData()">Aggiorna</button>
   </body>
 </html>

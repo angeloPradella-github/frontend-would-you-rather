@@ -64,3 +64,31 @@
 .switch-choice-type button:hover {
   transform: translateY(-10%) scale(1.05);
 }
+.percentage-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  /* margin-top: 1.8rem; */
+  position: relative;
+  z-index: 1;
+}
+
+.percentage-container * {
+  font-size: 3.5rem;
+  color: var(--clr-primary);
+  text-shadow: 0px 0px 25px rgba(251, 251, 251, 0.714);
+  font-weight: 600;
+  -webkit-text-stroke: 0.2px rgba(0, 255, 225, 0.553);
+  text-align: center;
+  border-bottom: 0;
+}
+
+.wyr-container .left-col h1,
+.wyr-container .right-col h1 {
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wyr-container .left-col:hover h1,
+.wyr-container .right-col:hover h1 {
+  transform: scale(1.06);
+}
