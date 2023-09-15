@@ -129,6 +129,13 @@ export class WouldYouRatherComponent implements OnInit {
         const span = div.querySelector('span');
         this.renderer.setStyle(span, 'display', 'block');
       });
+
+      //reshow the tot people as well
+      const agreeingH3s =
+        this.el.nativeElement.querySelectorAll('.agreeing-tot');
+      agreeingH3s.forEach((h3: HTMLElement) => {
+        this.renderer.setStyle(h3, 'display', 'block');
+      });
     } else if (this.currentChoices === 'ng') {
       this.currentChoices = 'ai';
       //--------------------
@@ -138,6 +145,12 @@ export class WouldYouRatherComponent implements OnInit {
       divs.forEach((div: HTMLElement) => {
         const span = div.querySelector('span');
         this.renderer.setStyle(span, 'display', 'none');
+      });
+      //cancel the tot people as well
+      const agreeingH3s =
+        this.el.nativeElement.querySelectorAll('.agreeing-tot');
+      agreeingH3s.forEach((h3: HTMLElement) => {
+        this.renderer.setStyle(h3, 'display', 'none');
       });
     }
 
