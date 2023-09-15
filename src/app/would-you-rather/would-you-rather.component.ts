@@ -35,7 +35,7 @@ export class WouldYouRatherComponent implements OnInit {
     private el: ElementRef
   ) {}
 
-  async updateData() {
+  async updateData(questionText: number) {
     if (this.isUpdating) return;
 
     this.isUpdating = true;
@@ -51,6 +51,22 @@ export class WouldYouRatherComponent implements OnInit {
       const span = div.querySelector('span');
       this.renderer.setStyle(span, 'font-size', '3.5rem');
     });
+    //----------showing the number of people
+    const agreeingH3s = this.el.nativeElement.querySelectorAll('.agreeing-tot');
+    if (questionText == 1) {
+      agreeingH3s[0].innerText = `${this.jsonData.time_selected_first_question} People Agree`;
+      agreeingH3s[1].innerText = `${this.jsonData.time_selected_second_question} People Disagree`;
+    } else if (questionText == 2) {
+      agreeingH3s[0].innerText = `${this.jsonData.time_selected_first_question} People Disgree`;
+      agreeingH3s[1].innerText = `${this.jsonData.time_selected_second_question} People Agree`;
+    }
+
+    setTimeout(() => {
+      agreeingH3s.forEach((h3: HTMLElement) => {
+        this.renderer.setStyle(h3, 'transform', 'scale(1)');
+      });
+    }, 1000);
+    //--------------------------------------
 
     // Add a 2-second delay before making the HTTP request
     if (this.currentChoices == 'ng')
@@ -61,11 +77,17 @@ export class WouldYouRatherComponent implements OnInit {
         const span = div.querySelector('span');
         this.renderer.setStyle(span, 'font-size', '0rem');
       });
+      agreeingH3s.forEach((h3: HTMLElement) => {
+        this.renderer.setStyle(h3, 'transform', 'scale(0)');
+      });
 
       let endpoint: string = '';
       if (this.currentChoices == 'ng') {
         const randomNumber = Math.floor(Math.random() * 10) + 1;
         endpoint = environment.normalEndpoint + randomNumber;
+
+        //------------salvataggio scelta nel db----------------
+        this.updatePercentageDb(questionText);
       } else if (this.currentChoices == 'ai') {
         const lang = 'italian';
         endpoint = environment.aiEndpoint + lang;
@@ -76,14 +98,23 @@ export class WouldYouRatherComponent implements OnInit {
 
       this.http.get(endpoint).subscribe((data: any) => {
         this.jsonData = data;
-
         // Set loading to false after the data is retrieved
         this.loading = false;
-
         // Reset the flag at the end of the operation
         this.isUpdating = false;
       });
     }, 2000);
+  }
+
+  updatePercentageDb(questionText: number) {
+    const questionIdParam: number = this.jsonData.questionId; // Replace with your desired value
+    const questionTextParam: number = questionText; // Replace with your desired value
+
+    const endpoint = `http://localhost:8084/GetQuestions?questionId=${questionIdParam}&questionText=${questionTextParam}`;
+
+    this.http.put(endpoint, {}).subscribe((data: any) => {
+      console.log(data);
+    });
   }
 
   switchChoicesType() {

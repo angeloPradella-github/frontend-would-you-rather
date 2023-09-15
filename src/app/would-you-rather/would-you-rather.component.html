@@ -11,7 +11,7 @@
         <!-- Colonna sinistra -->
         <div
           class="col-md-6 d-flex align-items-center justify-content-center left-col ps-3 flex-column cursor-pointer"
-          (click)="updateData()"
+          (click)="updateData(1)"
         >
           <!-- SWITCH CHOICE TYPE GENERATION -->
           <div class="switch-choice-type">
@@ -44,6 +44,8 @@
               >{{ displayedPercentage1 }}%</span
             >
           </div>
+          <!-- //agreeing tot -->
+          <h3 class="agreeing-tot">120 people agree</h3>
           <!-- or circle -->
           <div class="circle">
             <span id="or-text">OR</span>
@@ -52,7 +54,7 @@
         <!-- Colonna destra -->
         <div
           class="col-md-6 d-flex flex-column align-items-center justify-content-center right-col pe-3 cursor-pointer"
-          (click)="updateData()"
+          (click)="updateData(2)"
         >
           <h1 class="right-choice-txt mb-0" *ngIf="!loading">
             {{ jsonData?.question_text2 }}
@@ -74,6 +76,8 @@
               >{{ displayedPercentage2 }}%</span
             >
           </div>
+          <!-- //agreeing tot -->
+          <h3 class="agreeing-tot">120 people agree</h3>
         </div>
       </div>
     </section>
