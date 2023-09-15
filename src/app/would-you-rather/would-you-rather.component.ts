@@ -11,6 +11,7 @@ export class WouldYouRatherComponent implements OnInit {
   jsonData: any;
   currentChoices: string | undefined = 'ng';
   isUpdating: boolean = false;
+  loading: boolean = false;
 
   displayedPercentage1: number = 0;
   displayedPercentage2: number = 0;
@@ -52,7 +53,8 @@ export class WouldYouRatherComponent implements OnInit {
     });
 
     // Add a 2-second delay before making the HTTP request
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    if (this.currentChoices == 'ng')
+      await new Promise((resolve) => setTimeout(resolve, 2000));
 
     setTimeout(() => {
       divs.forEach((div: HTMLElement) => {
@@ -68,18 +70,47 @@ export class WouldYouRatherComponent implements OnInit {
         const lang = 'italian';
         endpoint = environment.aiEndpoint + lang;
       }
+
+      // Set loading to true right before making the HTTP call
+      this.loading = true;
+
       this.http.get(endpoint).subscribe((data: any) => {
         this.jsonData = data;
-        this.displayedPercentage1 = 0; // or whatever the starting value should be
-        this.displayedPercentage2 = 0; // or whatever the starting value should be
+
+        // Set loading to false after the data is retrieved
+        this.loading = false;
+
+        // Reset the flag at the end of the operation
         this.isUpdating = false;
       });
     }, 2000);
   }
 
   switchChoicesType() {
-    this.currentChoices = this.currentChoices === 'ai' ? 'ng' : 'ai';
-    this.updateData();
+    if (this.currentChoices === 'ai') {
+      this.currentChoices = 'ng';
+      //--------------------
+
+      const divs = this.el.nativeElement.querySelectorAll(
+        '.percentage-container'
+      );
+      divs.forEach((div: HTMLElement) => {
+        const span = div.querySelector('span');
+        this.renderer.setStyle(span, 'display', 'block');
+      });
+    } else if (this.currentChoices === 'ng') {
+      this.currentChoices = 'ai';
+      //--------------------
+      const divs = this.el.nativeElement.querySelectorAll(
+        '.percentage-container'
+      );
+      divs.forEach((div: HTMLElement) => {
+        const span = div.querySelector('span');
+        this.renderer.setStyle(span, 'display', 'none');
+      });
+    }
+
+    //this.updateData();
   }
 
   getTooltipText(): string {

@@ -24,9 +24,20 @@
             </button>
           </div>
 
-          <h1 class="left-choice-txt mb-0">
+          <h1 class="left-choice-txt mb-0" *ngIf="!loading">
             {{ jsonData?.question_text1 }}
           </h1>
+          <p *ngIf="loading" class="loading-text">
+            Loading<span class="dots"
+              ><span>.</span><span>.</span><span>.</span></span
+            >
+          </p>
+          <p-progressSpinner
+            styleClass="w-4rem h-4rem"
+            strokeWidth="5"
+            animationDuration=".5s"
+            *ngIf="loading"
+          ></p-progressSpinner>
           <!-- percentuale -->
           <div class="percentage-container">
             <span class="percentage" id="percentage1"
@@ -43,9 +54,20 @@
           class="col-md-6 d-flex flex-column align-items-center justify-content-center right-col pe-3 cursor-pointer"
           (click)="updateData()"
         >
-          <h1 class="right-choice-txt mb-0">
+          <h1 class="right-choice-txt mb-0" *ngIf="!loading">
             {{ jsonData?.question_text2 }}
           </h1>
+          <p *ngIf="loading" class="loading-text">
+            Loading<span class="dots"
+              ><span>.</span><span>.</span><span>.</span></span
+            >
+          </p>
+          <p-progressSpinner
+            styleClass="w-4rem h-4rem"
+            strokeWidth="5"
+            animationDuration=".5s"
+            *ngIf="loading"
+          ></p-progressSpinner>
           <!-- percentuale -->
           <div class="percentage-container">
             <span class="percentage" id="percentage1"
