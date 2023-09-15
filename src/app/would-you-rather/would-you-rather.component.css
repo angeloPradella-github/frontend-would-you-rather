@@ -15,7 +15,7 @@
 
 .wyr-container h1 {
   color: rgb(255, 255, 255);
-  width: 90%;
+  width: 70%;
   text-align: center;
   font-weight: 500;
   text-transform: capitalize;
@@ -69,18 +69,18 @@
   display: flex;
   justify-content: center;
   /* margin-top: 1.8rem; */
-  position: relative;
-  z-index: 1;
 }
 
 .percentage-container * {
-  font-size: 3.5rem;
+  /* font-size: 3.5rem; */
   color: var(--clr-primary);
   text-shadow: 0px 0px 25px rgba(251, 251, 251, 0.714);
   font-weight: 600;
   -webkit-text-stroke: 0.2px rgba(0, 255, 225, 0.553);
   text-align: center;
   border-bottom: 0;
+  font-size: 0;
+  transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 .wyr-container .left-col h1,

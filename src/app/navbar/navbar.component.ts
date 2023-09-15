@@ -66,10 +66,8 @@ export class NavbarComponent implements OnInit {
       this.changeColor(opacity);
     } else if (yOffset > 80) {
       this.changeColor(1);
-      console.log('evento 1');
     } else {
       this.changeColor(0);
-      console.log('evento 0');
     }
   }
 
