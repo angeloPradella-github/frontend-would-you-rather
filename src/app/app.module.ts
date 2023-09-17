@@ -16,6 +16,7 @@ import 'bootstrap/dist/js/bootstrap.js';
 import { WouldYouRatherComponent } from './would-you-rather/would-you-rather.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
     HomeComponent,
     NavbarComponent,
     WouldYouRatherComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
