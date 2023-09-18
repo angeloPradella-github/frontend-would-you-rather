@@ -1,0 +1,126 @@
+.gtf-container {
+  padding-inline: var(--p-content-global);
+}
+.facts-container {
+  margin-top: 3rem;
+}
+.gtf-container h1 {
+  font-size: 4rem;
+}
+
+.gtf-container h2 {
+  color: #333333a7;
+  font-size: 1.5rem;
+}
+
+.fact-box {
+  background-color: var(--clr-primary);
+  padding: 30px;
+  border-radius: 10px;
+  margin-block: 20px;
+  position: relative;
+  width: 600px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.414);
+  cursor: pointer;
+  --border-color: white; /* Custom property for border color */
+  --border-width: 2px; /* Custom property for border width */
+  --border-duration: 1s; /* Custom property for border animation duration */
+  --border-width-expanded: 10px; /* Custom property for expanded border width */
+  transition: box-shadow 300ms ease,
+    transform 200ms cubic-bezier(0.215, 0.61, 0.355, 1),
+    -webkit-transform 300ms ease;
+}
+
+.fact-box:hover {
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.575);
+  /* inset 2px 2px 10px rgba(0, 0, 0, 0.181); */
+  outline: 5px ridge #ffb42a;
+  transform: scale(1.015);
+}
+
+/* ________________________________________________________________ */
+.fact-box::after {
+  content: "";
+  background-color: rgba(255, 255, 255, 0.854);
+  inset-inline: 0;
+  bottom: 0;
+  height: 15%;
+  position: absolute;
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
+}
+/* //--------------------------------------------- */
+.fact-box .icon-box {
+  display: none;
+}
+.fact-box.wrong-answer .icon-box,
+.fact-box.correct-answer .icon-box {
+  display: block;
+}
+
+.fact-box.wrong-answer {
+  opacity: 0.6; /* Adjust the opacity value as needed */
+  pointer-events: none; /* Optionally, disable interactions with the box */
+  filter: grayscale(0.78);
+  filter: brightness(0.6);
+}
+
+.fact-box.hold-answer {
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.575);
+  /* inset 2px 2px 10px rgba(0, 0, 0, 0.181); */
+  outline: 5px ridge #ffb42a;
+  transform: scale(1.005);
+}
+
+.fact-box.wrong-answer .correct-icon {
+  display: none;
+}
+
+.fact-box.correct-answer .wrong-icon {
+  display: none;
+}
+
+.fact-box.wrong-answer .wrong-icon {
+  color: rgb(229, 5, 5);
+  position: absolute;
+  top: 0px;
+  right: 10px;
+  font-size: 2rem;
+}
+
+.fact-box.correct-answer .correct-icon {
+  color: rgb(5, 229, 5);
+  position: absolute;
+  top: 0px;
+  right: 10px;
+  font-size: 2rem;
+}
+/* ------------------------------------------------------- */
+.fact-box p {
+  margin-bottom: 0;
+  color: white;
+  font-size: 1.25rem;
+}
+
+.fact-box .fact-chip {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.705);
+  backdrop-filter: blur(10px);
+  top: -20px;
+  color: var(--clr-primary);
+  font-weight: 600;
+  padding-inline: 10px;
+  padding-block: 5px;
+  border-radius: 6px;
+}
+.gtf-container .card-col {
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+/* -------------------------------------------- */
+.confirm-btn {
+  width: fit-content;
+  margin-top: 20px;
+}

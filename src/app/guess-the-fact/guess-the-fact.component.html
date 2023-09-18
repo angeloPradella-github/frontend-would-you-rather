@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body id="gtfPage" class="gtf-container">
+    <section class="body-container mx-auto h-100 px-0 pt-5">
+      <h1>Guess the Fact</h1>
+      <h2>
+        Welcome to "Guess the Fact," where knowledge meets fun!<br />
+        In this exciting game, you'll be presented with a series of intriguing
+        statements, but there's a twist - only one of them is true! Select the
+        only correct one.
+      </h2>
+      <div class="row facts-container justify-content-center">
+        <div class="col-md-6 card-col pe-md-4">
+          <article
+            id="factBox1"
+            class="fact-box"
+            (click)="answerSelected('factBox1')"
+          >
+            <span class="fact-chip"> Fact 1</span>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <div id="icon-box1" class="icon-box">
+              <fa-icon class="correct-icon" [icon]="faCheck"></fa-icon>
+              <fa-icon class="wrong-icon" [icon]="faXCheck"></fa-icon>
+            </div>
+          </article>
+        </div>
+        <div class="col-md-6 card-col ps-md-4">
+          <article
+            id="factBox2"
+            class="fact-box"
+            (click)="answerSelected('factBox2')"
+          >
+            <span class="fact-chip"> Fact 2</span>
+            <p>
+              Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+            <div id="icon-box2" class="icon-box">
+              <fa-icon class="correct-icon" [icon]="faCheck"></fa-icon>
+              <fa-icon class="wrong-icon" [icon]="faXCheck"></fa-icon>
+            </div>
+          </article>
+        </div>
+        <div class="col-md-6 card-col pe-md-4">
+          <article
+            id="factBox3"
+            class="fact-box"
+            (click)="answerSelected('factBox3')"
+          >
+            <span class="fact-chip"> Fact 3</span>
+            <p>
+              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat.
+            </p>
+            <div id="icon-box3" class="icon-box">
+              <fa-icon class="correct-icon" [icon]="faCheck"></fa-icon>
+              <fa-icon class="wrong-icon" [icon]="faXCheck"></fa-icon>
+            </div>
+          </article>
+        </div>
+        <div class="col-md-6 card-col ps-md-4">
+          <article
+            id="factBox4"
+            class="fact-box"
+            (click)="answerSelected('factBox4')"
+          >
+            <span class="fact-chip"> Fact 4</span>
+            <p>
+              Duis aute irure dolor in reprehenderit in voluptate velit esse
+              cillum dolore eu fugiat nulla pariatur.
+            </p>
+            <div id="icon-box4" class="icon-box">
+              <fa-icon class="correct-icon" [icon]="faCheck"></fa-icon>
+              <fa-icon class="wrong-icon" [icon]="faXCheck"></fa-icon>
+            </div>
+          </article>
+        </div>
+        <p-button
+          id="confirmBtn"
+          label="Confirm Answer"
+          icon="pi pi-check"
+          iconPos="right"
+          class="confirm-btn d-none"
+          styleClass=" p-button-outlined"
+        ></p-button>
+      </div>
+    </section>
+  </body>
+</html>

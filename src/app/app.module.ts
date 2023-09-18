@@ -11,12 +11,14 @@ import { DropdownModule } from 'primeng/dropdown';
 import { ChipModule } from 'primeng/chip';
 import { TooltipModule } from 'primeng/tooltip';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ButtonModule } from 'primeng/button';
 
 import 'bootstrap/dist/js/bootstrap.js';
 import { WouldYouRatherComponent } from './would-you-rather/would-you-rather.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { FooterComponent } from './footer/footer.component';
+import { GuessTheFactComponent } from './guess-the-fact/guess-the-fact.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,7 @@ import { FooterComponent } from './footer/footer.component';
     NavbarComponent,
     WouldYouRatherComponent,
     FooterComponent,
+    GuessTheFactComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,6 +41,7 @@ import { FooterComponent } from './footer/footer.component';
     HttpClientModule,
     TooltipModule,
     ProgressSpinnerModule,
+    ButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
