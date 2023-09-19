@@ -18,11 +18,29 @@
         <div class="col-md-6 card-col pe-md-4">
           <article
             id="factBox1"
-            class="fact-box"
+            class="fact-box d-flex justify-content-center"
             (click)="answerSelected('factBox1')"
           >
             <span class="fact-chip"> Fact 1</span>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p>{{ jsonData?.question_text1 }}</p>
+
+            <!-- -----------------SPINNER--------------------- -->
+            <div>
+              <p *ngIf="loading" class="loading-text mx-auto w-100">
+                Loading<span class="dots"
+                  ><span>.</span><span>.</span><span>.</span></span
+                >
+              </p>
+              <p-progressSpinner
+                class="mx-auto"
+                styleClass="w-4rem h-4rem"
+                strokeWidth="5"
+                animationDuration=".5s"
+                *ngIf="loading"
+              ></p-progressSpinner>
+            </div>
+            <!-- --------------------------------------------- -->
+
             <div id="icon-box1" class="icon-box">
               <fa-icon class="correct-icon" [icon]="faCheck"></fa-icon>
               <fa-icon class="wrong-icon" [icon]="faXCheck"></fa-icon>
@@ -32,13 +50,29 @@
         <div class="col-md-6 card-col ps-md-4">
           <article
             id="factBox2"
-            class="fact-box"
+            class="fact-box d-flex justify-content-center"
             (click)="answerSelected('factBox2')"
           >
             <span class="fact-chip"> Fact 2</span>
             <p>
-              Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              {{ jsonData?.question_text2 }}
             </p>
+            <!-- -----------------SPINNER--------------------- -->
+            <div>
+              <p *ngIf="loading" class="loading-text mx-auto w-100">
+                Loading<span class="dots"
+                  ><span>.</span><span>.</span><span>.</span></span
+                >
+              </p>
+              <p-progressSpinner
+                class="mx-auto"
+                styleClass="w-4rem h-4rem"
+                strokeWidth="5"
+                animationDuration=".5s"
+                *ngIf="loading"
+              ></p-progressSpinner>
+            </div>
+            <!-- --------------------------------------------- -->
             <div id="icon-box2" class="icon-box">
               <fa-icon class="correct-icon" [icon]="faCheck"></fa-icon>
               <fa-icon class="wrong-icon" [icon]="faXCheck"></fa-icon>
@@ -48,14 +82,29 @@
         <div class="col-md-6 card-col pe-md-4">
           <article
             id="factBox3"
-            class="fact-box"
+            class="fact-box d-flex justify-content-center"
             (click)="answerSelected('factBox3')"
           >
             <span class="fact-chip"> Fact 3</span>
             <p>
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
+              {{ jsonData?.question_text3 }}
             </p>
+            <!-- -----------------SPINNER--------------------- -->
+            <div>
+              <p *ngIf="loading" class="loading-text mx-auto w-100">
+                Loading<span class="dots"
+                  ><span>.</span><span>.</span><span>.</span></span
+                >
+              </p>
+              <p-progressSpinner
+                class="mx-auto"
+                styleClass="w-4rem h-4rem"
+                strokeWidth="5"
+                animationDuration=".5s"
+                *ngIf="loading"
+              ></p-progressSpinner>
+            </div>
+            <!-- --------------------------------------------- -->
             <div id="icon-box3" class="icon-box">
               <fa-icon class="correct-icon" [icon]="faCheck"></fa-icon>
               <fa-icon class="wrong-icon" [icon]="faXCheck"></fa-icon>
@@ -65,20 +114,36 @@
         <div class="col-md-6 card-col ps-md-4">
           <article
             id="factBox4"
-            class="fact-box"
+            class="fact-box d-flex justify-content-center"
             (click)="answerSelected('factBox4')"
           >
             <span class="fact-chip"> Fact 4</span>
             <p>
-              Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur.
+              {{ jsonData?.question_text4 }}
             </p>
+            <!-- -----------------SPINNER--------------------- -->
+            <div>
+              <p *ngIf="loading" class="loading-text mx-auto w-100">
+                Loading<span class="dots"
+                  ><span>.</span><span>.</span><span>.</span></span
+                >
+              </p>
+              <p-progressSpinner
+                class="mx-auto"
+                styleClass="w-4rem h-4rem"
+                strokeWidth="5"
+                animationDuration=".5s"
+                *ngIf="loading"
+              ></p-progressSpinner>
+            </div>
+            <!-- --------------------------------------------- -->
             <div id="icon-box4" class="icon-box">
               <fa-icon class="correct-icon" [icon]="faCheck"></fa-icon>
               <fa-icon class="wrong-icon" [icon]="faXCheck"></fa-icon>
             </div>
           </article>
         </div>
+        <!-- confirm answer btn -->
         <p-button
           id="confirmBtn"
           label="Confirm Answer"
@@ -86,6 +151,17 @@
           iconPos="right"
           class="confirm-btn d-none"
           styleClass=" p-button-outlined"
+          (click)="confirmAnswer()"
+        ></p-button>
+        <!-- next question btn  -->
+        <p-button
+          id="nextQuestionsBtn"
+          label="Next Questions"
+          icon="pi pi-arrow-circle-right"
+          iconPos="right"
+          class="next-question-btn d-none"
+          styleClass="p-button-outlined p-button-primary p-button-info"
+          (click)="nextQuestions()"
         ></p-button>
       </div>
     </section>
