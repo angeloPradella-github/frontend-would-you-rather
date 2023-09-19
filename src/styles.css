@@ -6,6 +6,10 @@
   --fs-h2: 1rem;
   --clr-primary: #2fb2ac;
 }
+.clr-primary {
+  color: var(--clr-primary);
+}
+
 html,
 body {
   height: 100%;
@@ -67,4 +71,8 @@ body .main-btn {
 }
 .cursor-pointer {
   cursor: pointer;
+}
+
+.shorter {
+  width: 50px !important;
 }

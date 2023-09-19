@@ -3,6 +3,11 @@ import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
 import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 import { HttpClient } from '@angular/common/http';
 
+interface Topic {
+  name: string;
+  code: string;
+}
+
 @Component({
   selector: 'app-guess-the-fact',
   templateUrl: './guess-the-fact.component.html',
@@ -18,15 +23,48 @@ export class GuessTheFactComponent {
   loading: boolean = false;
   confirmBtn: Element | null = null;
   nextQuestionsBtn: Element | null = null;
+  explanationBox: Element | null = null;
+
+  topics: Topic[] | undefined;
+  selectedTopic: Topic | undefined;
+
+  languages: any[] | undefined;
+  selectedLanguage: { name: string; code: string } | undefined;
 
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
+    this.languages = [
+      { name: 'Italian', code: 'IT' },
+      { name: 'English', code: 'GB' },
+      { name: 'French', code: 'FR' },
+      { name: 'German', code: 'DE' },
+      { name: 'Spanish', code: 'ES' },
+    ];
+
+    this.topics = [
+      { name: 'History', code: 'HS' },
+      { name: 'Coding', code: 'CD' },
+      { name: 'Languages', code: 'LGS' },
+      { name: 'Food', code: 'FD' },
+      { name: 'Fitness', code: 'FTN' },
+      { name: 'Animal Kingdom', code: 'ANK' },
+      { name: 'Cinema', code: 'CNM' },
+    ];
+
+    const strtingTopic: Topic = {
+      name: 'History',
+      code: 'HS',
+    };
+
+    this.selectedTopic = strtingTopic;
+
     this.page = document.querySelector('#gtfPage');
     this.factBoxes = document.querySelectorAll('.fact-box');
     this.getAnswersAndShow();
     this.confirmBtn = this.page!.querySelector('#confirmBtn');
     this.nextQuestionsBtn = this.page!.querySelector('#nextQuestionsBtn');
+    this.explanationBox = this.page!.querySelector('#explanation');
   }
 
   answerSelected(factID: string) {
@@ -47,10 +85,13 @@ export class GuessTheFactComponent {
 
   getAnswersAndShow() {
     this.loading = true;
+    let language;
+    if (this.selectedLanguage == undefined) language = 'english';
+    else language = this.selectedLanguage.name;
 
     this.http
       .get(
-        'http://localhst:8084/GetAIFourQuestions?language=english&topic=history'
+        `http://localhost:8084/GetAIFourQuestions?language=${language}&topic=${this.selectedTopic?.name}`
       )
       .subscribe((data: any) => {
         this.jsonData = data;
@@ -66,12 +107,14 @@ export class GuessTheFactComponent {
     });
     this.confirmBtn?.classList.toggle('d-none');
     this.nextQuestionsBtn?.classList.toggle('d-none');
-
+    this.explanationBox?.classList.toggle('scale-transition');
     console.log(this.jsonData);
   }
 
   nextQuestions() {
     this.nextQuestionsBtn?.classList.toggle('d-none');
+    this.explanationBox?.classList.toggle('scale-transition');
+
     this.jsonData = {};
     this.factBoxes?.forEach((el, i) => {
       if (el.classList.contains('hold-answer'))

@@ -129,3 +129,40 @@
   width: fit-content;
   margin-top: 20px;
 }
+
+.gtf .explanation {
+  width: 75%;
+  margin-top: 2rem;
+  font-size: 1.2rem;
+  color: #3b3b3bc1;
+  padding-bottom: 3rem;
+  transition: all 0.3s ease;
+}
+
+.scale-transition {
+  transform: scale(0);
+  height: 0px;
+}
+
+.gtf .explanation p {
+  --clr: #2fb2ab86;
+  padding-inline: 2rem;
+  padding-block: 1.25rem;
+  border-top: 0.7px solid var(--clr);
+  border-bottom: 0.7px solid var(--clr);
+  font-style: italic;
+}
+
+.gtf .topic-name {
+  color: var(--clr-primary);
+  font-size: 2.75rem;
+  /* text-decoration: overline; */
+  text-shadow: 3px 3px 7px rgba(0, 0, 0, 0.234);
+}
+
+.gtf .topic-name span {
+  border: 1px solid var(--clr-primary);
+  padding-inline: 2rem;
+  padding-block: 1rem;
+  border-radius: 5px;
+}
