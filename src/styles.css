@@ -76,3 +76,7 @@ body .main-btn {
 .shorter {
   width: 50px !important;
 }
+
+.box-shadow {
+  box-shadow: -5px 5px 40px rgba(0, 0, 0, 0.312);
+}
