@@ -19,6 +19,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { FooterComponent } from './footer/footer.component';
 import { GuessTheFactComponent } from './guess-the-fact/guess-the-fact.component';
+import { LoginComponent } from './login/login.component';
+import { AppLayoutComponent } from './app-layout/app-layout.component';
+import { AppLoginLayoutComponent } from './app-login-layout/app-login-layout.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +31,9 @@ import { GuessTheFactComponent } from './guess-the-fact/guess-the-fact.component
     WouldYouRatherComponent,
     FooterComponent,
     GuessTheFactComponent,
+    LoginComponent,
+    AppLayoutComponent,
+    AppLoginLayoutComponent,
   ],
   imports: [
     BrowserModule,
