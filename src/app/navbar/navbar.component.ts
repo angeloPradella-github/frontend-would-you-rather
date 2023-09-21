@@ -18,6 +18,8 @@ interface Games {
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
+  isLoggedIn = environment.isLoggedIn;
+
   choices_games: Games[] | undefined;
   selectedChoiceGame: Games | undefined;
   //---------------------------------//

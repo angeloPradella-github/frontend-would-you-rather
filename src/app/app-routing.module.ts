@@ -6,6 +6,8 @@ import { GuessTheFactComponent } from './guess-the-fact/guess-the-fact.component
 import { AppLayoutComponent } from './app-layout/app-layout.component';
 import { AppLoginLayoutComponent } from './app-login-layout/app-login-layout.component';
 import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './auth.guard';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
   {
@@ -15,12 +17,22 @@ const routes: Routes = [
       { path: '', component: HomeComponent },
       { path: 'would-you-rather', component: WouldYouRatherComponent },
       { path: 'guess-the-fact', component: GuessTheFactComponent },
+      {
+        path: 'user-profile',
+        component: GuessTheFactComponent,
+        canActivate: [AuthGuard],
+      },
     ],
   },
   {
     path: 'login',
     component: AppLoginLayoutComponent,
     children: [{ path: '', component: LoginComponent }],
+  },
+  {
+    path: 'register',
+    component: AppLoginLayoutComponent,
+    children: [{ path: '', component: RegisterComponent }],
   },
 ];
 

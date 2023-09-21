@@ -58,10 +58,19 @@
 
     <!-- //------------------------------------------------------------------------// -->
     <div class="login-container d-flex gap-3 align-items-center">
-      <a href="/login" class="bold">Login</a>
-      <p-chip class="override-chip">
-        <a href="#" class="p-2 bold text-white">Registration</a>
-      </p-chip>
+      <ng-container *ngIf="!isLoggedIn">
+        <a href="/login" class="bold">Login</a>
+        <p-chip class="override-chip">
+          <a href="#" class="p-2 bold text-white">Registration</a>
+        </p-chip>
+      </ng-container>
+      <ng-container *ngIf="isLoggedIn">
+        <!-- Inserisci qui il nome dell'utente e l'icona dell'utente -->
+        <div class="user-info">
+          <span class="user-name"> userName </span>
+          <img src="url_dell_icona" alt="User Icon" class="user-icon" />
+        </div>
+      </ng-container>
     </div>
   </div>
 </nav>

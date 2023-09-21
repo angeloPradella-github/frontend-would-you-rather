@@ -22,6 +22,10 @@ import { GuessTheFactComponent } from './guess-the-fact/guess-the-fact.component
 import { LoginComponent } from './login/login.component';
 import { AppLayoutComponent } from './app-layout/app-layout.component';
 import { AppLoginLayoutComponent } from './app-login-layout/app-login-layout.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { MessagesModule } from 'primeng/messages';
+import { MessageService } from 'primeng/api';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +38,8 @@ import { AppLoginLayoutComponent } from './app-login-layout/app-login-layout.com
     LoginComponent,
     AppLayoutComponent,
     AppLoginLayoutComponent,
+    UserProfileComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,8 +54,9 @@ import { AppLoginLayoutComponent } from './app-login-layout/app-login-layout.com
     TooltipModule,
     ProgressSpinnerModule,
     ButtonModule,
+    MessagesModule,
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
