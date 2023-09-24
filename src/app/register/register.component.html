@@ -15,10 +15,7 @@
         <div class="box-shadow wrap-login100 p-l-110 p-r-110 p-t-62 p-b-33">
           <p-messages></p-messages>
 
-          <form
-            (ngSubmit)="onSubmit()"
-            class="login100-form validate-form flex-sb flex-w"
-          >
+          <div class="login100-form validate-form flex-sb flex-w">
             <span class="login100-form-title p-b-53"> Sign up with </span>
 
             <a href="#" class="btn-face m-b-20">
@@ -37,33 +34,58 @@
                 </div>
                 <div
                   class="wrap-input100 validate-input"
+                  [ngClass]="{
+                    'has-error': fieldTouched.name && !userData.name
+                  }"
                   data-validate="Nome is required"
                 >
                   <input
-                    [(ngModel)]="userData.firstName"
+                    required
+                    [(ngModel)]="userData.name"
                     class="input100"
                     type="text"
-                    name="firstName"
+                    name="name"
+                    (blur)="fieldTouched.name = true"
                   />
                   <span class="focus-input100"></span>
                 </div>
+                <small
+                  id="name-error"
+                  class="p-error"
+                  *ngIf="fieldTouched.name && !userData.name"
+                >
+                  Il campo Nome è obbligatorio.
+                </small>
               </div>
+              <!-- Cognome -->
               <div>
                 <div class="p-t-31 p-b-9">
                   <span class="txt1 bold"> Last Name </span>
                 </div>
                 <div
                   class="wrap-input100 validate-input"
+                  [ngClass]="{
+                    'has-error': fieldTouched.surname && !userData.surname
+                  }"
                   data-validate="Cognome is required"
                 >
                   <input
-                    [(ngModel)]="userData.lastName"
+                    required
+                    [(ngModel)]="userData.surname"
                     class="input100"
                     type="text"
-                    name="lastName"
+                    name="surname"
+                    (blur)="fieldTouched.surname = true"
                   />
                   <span class="focus-input100"></span>
                 </div>
+                <small
+                  id="surname-error"
+                  class="p-error"
+                  *ngIf="fieldTouched.surname && !userData.surname"
+                >
+                  Il campo Cognome è obbligatorio.
+                </small>
               </div>
             </section>
             <div class="">
@@ -72,13 +94,52 @@
               </div>
               <div class="wrap-input-custom validate-input">
                 <p-dropdown
-                  [(ngModel)]="userData.nationality"
                   [options]="nations"
-                  name="nationality"
-                  class="input100"
-                ></p-dropdown>
+                  [(ngModel)]="selectedNation"
+                  optionLabel="name"
+                  [filter]="true"
+                  filterBy="name"
+                  [showClear]="true"
+                  placeholder="Select a Nation"
+                >
+                  <ng-template pTemplate="selectedItem">
+                    <div
+                      class="d-flex align-items-center gap-2"
+                      *ngIf="selectedNation"
+                    >
+                      <img
+                        src="https://primefaces.org/cdn/primeng/images/demo/flag/flag_placeholder.png"
+                        [class]="
+                          'flag flag-' + selectedNation.code.toLowerCase()
+                        "
+                        style="width: 18px"
+                      />
+                      <div>{{ selectedNation.name }}</div>
+                    </div>
+                  </ng-template>
+                  <ng-template let-nation pTemplate="item">
+                    <div class="d-flex align-items-center gap-2">
+                      <img
+                        src="https://primefaces.org/cdn/primeng/images/demo/flag/flag_placeholder.png"
+                        [class]="'flag flag-' + nation.code.toLowerCase()"
+                        style="width: 18px"
+                      />
+                      <div>{{ nation.name }}</div>
+                    </div>
+                  </ng-template>
+                </p-dropdown>
                 <span class="focus-input100"></span>
               </div>
+              <small
+                id="nationality-error"
+                class="p-error"
+                *ngIf="
+                  fieldTouched.nationality &&
+                  (!selectedNation || !selectedNation.code)
+                "
+              >
+                Il campo Nazionalità è obbligatorio.
+              </small>
             </div>
 
             <div class="">
@@ -87,23 +148,39 @@
               </div>
               <div
                 class="wrap-input100 validate-input"
+                [ngClass]="{
+                  'has-error': fieldTouched.email && !userData.email
+                }"
                 data-validate="Email is required"
               >
                 <input
+                  required
                   [(ngModel)]="userData.email"
                   class="input100"
                   type="email"
                   name="email"
+                  (blur)="fieldTouched.email = true"
                 />
                 <span class="focus-input100"></span>
               </div>
+              <small
+                id="email-error"
+                class="p-error"
+                *ngIf="fieldTouched.email && !userData.email"
+              >
+                Il campo Email è obbligatorio.
+              </small>
             </div>
 
+            <!-- Password -->
             <div class="p-t-13 p-b-9">
               <span class="txt1 bold"> Password </span>
             </div>
             <div
               class="wrap-input100 validate-input"
+              [ngClass]="{
+                'has-error': fieldTouched.password && !userData.password
+              }"
               data-validate="Password is required"
             >
               <input
@@ -111,36 +188,54 @@
                 class="input100"
                 type="password"
                 name="password"
+                (blur)="fieldTouched.password = true"
               />
               <span class="focus-input100"></span>
             </div>
+            <small
+              id="password-error"
+              class="p-error"
+              *ngIf="fieldTouched.password && !userData.password"
+            >
+              Il campo Password è obbligatorio.
+            </small>
 
+            <!-- Conferma Password -->
             <div class="p-t-13 p-b-9">
               <span class="txt1 bold"> Confirm Password </span>
             </div>
             <div
               class="wrap-input100 validate-input"
+              [ngClass]="{
+                'has-error':
+                  fieldTouched.confirmPassword && !userData.confirmPassword
+              }"
               data-validate="Conferma Password is required"
             >
               <input
+                required
                 [(ngModel)]="userData.confirmPassword"
                 class="input100"
                 type="password"
                 name="confirmPassword"
+                (blur)="fieldTouched.confirmPassword = true"
               />
               <span class="focus-input100"></span>
             </div>
-
             <small
-              id="password-error"
+              id="confirmPassword-error"
               class="p-error"
-              *ngFor="let message of errorMessages"
+              *ngIf="fieldTouched.confirmPassword && !userData.confirmPassword"
             >
-              {{ message }}
+              Il campo Conferma Password è obbligatorio.
             </small>
 
             <div class="container-login100-form-btn m-t-17">
-              <button class="login100-form-btn" type="submit">
+              <button
+                (click)="submit()"
+                class="login100-form-btn"
+                type="button"
+              >
                 Registrati
               </button>
             </div>
@@ -149,7 +244,7 @@
               <span class="txt2"> Sei già membro? </span>
               <a href="/login" class="txt2 bo1"> Accedi ora </a>
             </div>
-          </form>
+          </div>
         </div>
       </div>
     </div>

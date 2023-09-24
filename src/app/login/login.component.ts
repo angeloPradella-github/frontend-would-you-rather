@@ -40,7 +40,7 @@ export class LoginComponent {
 
             this.messageService.add({
               severity: 'error',
-              summary: 'Errore',
+              summary: 'Error',
               detail: 'Credenziali errate. Riprova.',
             });
             console.error('Credenziali non valide.');
@@ -51,7 +51,7 @@ export class LoginComponent {
 
           this.messageService.add({
             severity: 'error',
-            summary: 'Errore',
+            summary: 'Error',
             detail: 'Errore durante la chiamata POST.',
           });
           console.error('Errore durante la chiamata POST:', error);
