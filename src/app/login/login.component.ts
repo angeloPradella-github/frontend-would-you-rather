@@ -32,8 +32,9 @@ export class LoginComponent {
             // Salva il token JWT nel localStorage
             localStorage.setItem('jwtToken', response.token);
             environment.isLoggedIn = true;
+            environment.userData = response.user;
 
-            console.log('Login riuscito.');
+            console.log('Login riuscito.' + response.user.name);
             this.router.navigate(['/']);
           } else {
             this.errorMessages = ['Credenziali errate. Riprova.'];

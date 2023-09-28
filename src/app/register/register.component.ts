@@ -40,18 +40,35 @@ export class RegisterComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.nations = [
-      { name: 'Australia', code: 'AU' },
-      { name: 'Brazil', code: 'BR' },
-      { name: 'China', code: 'CN' },
-      { name: 'Egypt', code: 'EG' },
-      { name: 'France', code: 'FR' },
-      { name: 'Germany', code: 'DE' },
-      { name: 'India', code: 'IN' },
-      { name: 'Japan', code: 'JP' },
-      { name: 'Spain', code: 'ES' },
-      { name: 'United States', code: 'US' },
-    ];
+    this.getNationalities();
+  }
+
+  getNationalities() {
+    const apiUrl = 'https://restcountries.com/v3.1/all';
+
+    this.http.get(apiUrl).subscribe(
+      (data: any) => {
+        this.nations = data.map((country: any) => {
+          return { name: country.name.common, code: country.cca2 };
+        });
+      },
+      (error) => {
+        console.error("Errore durante la richiesta all'API", error);
+        //fallback
+        this.nations = [
+          { name: 'Australia', code: 'AU' },
+          { name: 'Brazil', code: 'BR' },
+          { name: 'China', code: 'CN' },
+          { name: 'Egypt', code: 'EG' },
+          { name: 'France', code: 'FR' },
+          { name: 'Germany', code: 'DE' },
+          { name: 'India', code: 'IN' },
+          { name: 'Japan', code: 'JP' },
+          { name: 'Spain', code: 'ES' },
+          { name: 'United States', code: 'US' },
+        ];
+      }
+    );
   }
 
   submit() {

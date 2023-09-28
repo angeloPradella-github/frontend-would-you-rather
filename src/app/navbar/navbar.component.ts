@@ -18,7 +18,7 @@ interface Games {
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
-  isLoggedIn = environment.isLoggedIn;
+  isLoggedIn!: boolean;
 
   choices_games: Games[] | undefined;
   selectedChoiceGame: Games | undefined;
@@ -30,10 +30,12 @@ export class NavbarComponent implements OnInit {
   selectedQuizGame: Games | undefined;
   //---------------------------------//
   siteName: string = environment.siteName;
+  userData = environment.userData;
 
   constructor(private renderer: Renderer2, private el: ElementRef) {}
 
   ngOnInit() {
+    this.isLoggedIn = environment.isLoggedIn;
     this.choices_games = [
       { name: 'Would You Rather', code: 'WYR' },
       { name: 'What would you do for...', code: 'WWYD' },

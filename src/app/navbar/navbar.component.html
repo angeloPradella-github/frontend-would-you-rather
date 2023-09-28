@@ -2,6 +2,7 @@
   <div
     class="nav-all-container d-flex justify-content-between align-items-center"
   >
+    VALORE: {{ isLoggedIn }}
     <div class="logo-container d-flex align-items-center">
       <img
         class="logo"
@@ -61,14 +62,14 @@
       <ng-container *ngIf="!isLoggedIn">
         <a href="/login" class="bold">Login</a>
         <p-chip class="override-chip">
-          <a href="#" class="p-2 bold text-white">Registration</a>
+          <a href="/register" class="p-2 bold text-white">Registration</a>
         </p-chip>
       </ng-container>
       <ng-container *ngIf="isLoggedIn">
         <!-- Inserisci qui il nome dell'utente e l'icona dell'utente -->
         <div class="user-info">
-          <span class="user-name"> userName </span>
-          <img src="url_dell_icona" alt="User Icon" class="user-icon" />
+          <span class="user-name"> Hi, {{ userData.name }} </span>
+          <i class="pi pi-user user-icon"></i>
         </div>
       </ng-container>
     </div>
