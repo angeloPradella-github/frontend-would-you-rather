@@ -18,5 +18,28 @@ nav {
   margin-inline: auto;
 }
 
-.logo-container {
+.user-icon {
+  background-color: var(--clr-primary);
+  padding: 0.9rem;
+  font-size: 1rem;
+  border-radius: 50%;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.user-icon:hover {
+  box-shadow: 1px 0px 10px rgba(0, 0, 0, 0.297);
+}
+
+.user-info {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.user-info .user-name {
+  font-size: 1.5rem;
+  color: rgba(0, 0, 0, 0.773);
 }

@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Message, MessageService } from 'primeng/api';
 import { environment } from '../../environments/environment';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -18,38 +19,34 @@ export class LoginComponent {
   errorMessages: any[] = [];
 
   constructor(
-    private http: HttpClient,
+    private authService: AuthService,
     private router: Router,
     private messageService: MessageService
   ) {}
 
   onSubmit() {
-    this.http
-      .post('http://localhost:8084/loginWithCredentials', this.userData)
+    this.authService
+      .login(this.userData.email, this.userData.password)
       .subscribe(
-        (response: any) => {
-          if (response && response.token) {
-            // Salva il token JWT nel localStorage
-            localStorage.setItem('jwtToken', response.token);
-            environment.isLoggedIn = true;
-            environment.userData = response.user;
+        (response) => {
+          if (response) {
+            // environment.userData = response.user;
+            localStorage.setItem('userData', JSON.stringify(response.user));
 
-            console.log('Login riuscito.' + response.user.name);
             this.router.navigate(['/']);
           } else {
+            // Gestisci il caso in cui non ci sia un token valido
             this.errorMessages = ['Credenziali errate. Riprova.'];
-
             this.messageService.add({
               severity: 'error',
               summary: 'Error',
               detail: 'Credenziali errate. Riprova.',
             });
-            console.error('Credenziali non valide.');
           }
         },
         (error) => {
+          // Gestisci gli errori di login
           this.errorMessages = ['Errore Chiamata POST'];
-
           this.messageService.add({
             severity: 'error',
             summary: 'Error',
@@ -58,7 +55,5 @@ export class LoginComponent {
           console.error('Errore durante la chiamata POST:', error);
         }
       );
-
-    this.messageService.clear();
   }
 }

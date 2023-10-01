@@ -5,6 +5,9 @@ import {
   ElementRef,
   HostListener,
 } from '@angular/core';
+import { MenuItem } from 'primeng/api';
+import { AuthService } from '../auth.service';
+
 import { environment } from '../../environments/environment';
 
 interface Games {
@@ -30,12 +33,20 @@ export class NavbarComponent implements OnInit {
   selectedQuizGame: Games | undefined;
   //---------------------------------//
   siteName: string = environment.siteName;
-  userData = environment.userData;
+  userData = localStorage.getItem('userData')
+    ? JSON.parse(localStorage.getItem('userData')!)
+    : null;
 
-  constructor(private renderer: Renderer2, private el: ElementRef) {}
+  items: MenuItem[] | undefined;
+
+  constructor(
+    private renderer: Renderer2,
+    private el: ElementRef,
+    private authService: AuthService
+  ) {}
 
   ngOnInit() {
-    this.isLoggedIn = environment.isLoggedIn;
+    this.isLoggedIn = localStorage.getItem('token') ? true : false;
     this.choices_games = [
       { name: 'Would You Rather', code: 'WYR' },
       { name: 'What would you do for...', code: 'WWYD' },
@@ -58,6 +69,42 @@ export class NavbarComponent implements OnInit {
     this.quiz_games = [
       { name: 'Fact Check', code: 'FC' },
       { name: 'Riddle Me This', code: 'RMT' },
+    ];
+    //---------------------------------//
+    this.items = [
+      {
+        label: 'Account',
+        items: [
+          {
+            disabled: true,
+            tooltip: 'Not yet implemented',
+            tooltipPosition: 'left',
+            label: 'Statistics',
+            icon: 'pi pi-chart-bar',
+            command: () => {
+              // this.update();
+            },
+          },
+          {
+            label: 'Settings',
+            disabled: true,
+            tooltip: 'Not yet implemented',
+            tooltipPosition: 'left',
+            icon: 'pi pi-cog',
+            command: () => {
+              // this.update();
+            },
+          },
+          { separator: true },
+          {
+            label: 'Logout',
+            icon: 'pi pi-sign-out',
+            command: () => {
+              this.authService.logout();
+            },
+          },
+        ],
+      },
     ];
   }
 

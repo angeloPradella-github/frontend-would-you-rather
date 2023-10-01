@@ -26,6 +26,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { MessagesModule } from 'primeng/messages';
 import { MessageService } from 'primeng/api';
 import { RegisterComponent } from './register/register.component';
+import { MenuModule } from 'primeng/menu';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { RegisterComponent } from './register/register.component';
     ProgressSpinnerModule,
     ButtonModule,
     MessagesModule,
+    MenuModule,
   ],
   providers: [MessageService],
   bootstrap: [AppComponent],

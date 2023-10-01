@@ -80,10 +80,3 @@ body .main-btn {
 .box-shadow {
   box-shadow: -5px 5px 40px rgba(0, 0, 0, 0.312);
 }
-
-.user-icon {
-  background-color: var(--clr-primary);
-  padding: 1rem;
-  font-size: 1rem;
-  border-radius: 50%;
-}

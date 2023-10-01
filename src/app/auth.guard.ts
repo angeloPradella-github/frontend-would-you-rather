@@ -5,24 +5,23 @@ import {
   RouterStateSnapshot,
   Router,
 } from '@angular/router';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthGuard implements CanActivate {
-  constructor(private router: Router) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): boolean {
-    const token = localStorage.getItem('jwtToken');
-
-    if (token) {
-      // Utente autenticato
+    if (this.authService.isAuthenticated()) {
+      console.log('miaoooo: ' + this.authService.isAuthenticated());
       return true;
     } else {
-      // Utente non autenticato
+      // Utente non autenticato, reindirizza alla pagina di login
       this.router.navigate(['/login']);
       return false;
     }

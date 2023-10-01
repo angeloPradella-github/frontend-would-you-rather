@@ -2,7 +2,6 @@
   <div
     class="nav-all-container d-flex justify-content-between align-items-center"
   >
-    VALORE: {{ isLoggedIn }}
     <div class="logo-container d-flex align-items-center">
       <img
         class="logo"
@@ -68,8 +67,9 @@
       <ng-container *ngIf="isLoggedIn">
         <!-- Inserisci qui il nome dell'utente e l'icona dell'utente -->
         <div class="user-info">
-          <span class="user-name"> Hi, {{ userData.name }} </span>
-          <i class="pi pi-user user-icon"></i>
+          <span class="user-name"> Hi, {{ userData?.name }} </span>
+          <i class="pi pi-user user-icon" (click)="menu.toggle($event)"></i>
+          <p-menu #menu [model]="items" [popup]="true"></p-menu>
         </div>
       </ng-container>
     </div>
