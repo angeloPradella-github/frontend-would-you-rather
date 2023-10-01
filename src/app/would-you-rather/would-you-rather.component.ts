@@ -110,7 +110,7 @@ export class WouldYouRatherComponent implements OnInit {
     const questionIdParam: number = this.jsonData.questionId; // Replace with your desired value
     const questionTextParam: number = questionText; // Replace with your desired value
 
-    const endpoint = `http://localhost:8084/GetQuestions?questionId=${questionIdParam}&questionText=${questionTextParam}`;
+    const endpoint = `https://wouldyouratherbackend-production.up.railway.app/GetQuestions?questionId=${questionIdParam}&questionText=${questionTextParam}`;
 
     this.http.put(endpoint, {}).subscribe((data: any) => {
       console.log(data);

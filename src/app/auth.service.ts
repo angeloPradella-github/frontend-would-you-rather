@@ -15,7 +15,10 @@ export class AuthService {
   login(email: string, password: string) {
     // Invia la richiesta di login al server e gestisci la risposta
     return this.http
-      .post('http://localhost:8084/loginWithCredentials', { email, password })
+      .post(
+        'https://wouldyouratherbackend-production.up.railway.app/loginWithCredentials',
+        { email, password }
+      )
       .pipe(
         tap((response: any) => {
           if (response.token) {
@@ -47,7 +50,7 @@ export class AuthService {
       return false;
     }
     return this.http.get<boolean>(
-      `http://localhost:8084/validateToken?token=${token}`
+      `https://wouldyouratherbackend-production.up.railway.app/validateToken?token=${token}`
     );
   }
 

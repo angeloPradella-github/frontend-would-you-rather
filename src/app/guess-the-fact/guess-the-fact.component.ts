@@ -91,7 +91,7 @@ export class GuessTheFactComponent {
 
     this.http
       .get(
-        `http://localhost:8084/GetAIFourQuestions?language=${language}&topic=${this.selectedTopic?.name}`
+        `https://wouldyouratherbackend-production.up.railway.app/GetAIFourQuestions?language=${language}&topic=${this.selectedTopic?.name}`
       )
       .subscribe((data: any) => {
         this.jsonData = data;
