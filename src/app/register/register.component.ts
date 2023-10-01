@@ -95,46 +95,57 @@ export class RegisterComponent implements OnInit {
     }
 
     // Effettua la chiamata POST
-    this.http.post('http://localhost:8084/register', this.userData).subscribe(
-      (response: any) => {
-        if (response) {
-          console.log('registrazione riuscita');
-          this.router.navigate(['/login']);
-        } else {
-          this.errorMessages = ['Error'];
+    this.http
+      .post(
+        'https://wouldyouratherbackend-production.up.railway.app/register',
+        this.userData
+      )
+      .subscribe(
+        (response: any) => {
+          if (response) {
+            console.log('registrazione riuscita');
+            this.messageService.add({
+              severity: 'success',
+              summary: 'Login effettuato',
+              detail: 'Benvenuto nella tua area personale',
+            });
 
-          this.messageService.add({
-            severity: 'error',
-            summary: 'Errore',
-            detail: 'Errore durante la chiamata POST.',
-          });
-          console.error('Errore dal backend:', response);
-        }
-      },
-      (error: any) => {
-        if (error.status === 400) {
-          // Gestisci l'errore di validazione dei campi nel backend
-          const errorMessage = error.error.error; // Assumendo che il campo "error" contenga il messaggio di errore
-          this.errorMessages = [errorMessage];
+            this.router.navigate(['/login']);
+          } else {
+            this.errorMessages = ['Error'];
 
-          this.messageService.add({
-            severity: 'error',
-            summary: 'Error',
-            detail: errorMessage,
-          });
-          console.error('Errore durante la chiamata POST:', errorMessage);
-        } else {
-          // Gestisci altri errori
-          this.errorMessages = ['Errore durante la chiamata POST'];
-          this.messageService.add({
-            severity: 'error',
-            summary: 'Errore',
-            detail: 'Errore durante la chiamata POST.',
-          });
-          console.error('Errore durante la chiamata POST:', error);
+            this.messageService.add({
+              severity: 'error',
+              summary: 'Errore',
+              detail: 'Errore durante la chiamata POST.',
+            });
+            console.error('Errore dal backend:', response);
+          }
+        },
+        (error: any) => {
+          if (error.status === 400) {
+            // Gestisci l'errore di validazione dei campi nel backend
+            const errorMessage = error.error.error; // Assumendo che il campo "error" contenga il messaggio di errore
+            this.errorMessages = [errorMessage];
+
+            this.messageService.add({
+              severity: 'error',
+              summary: 'Error',
+              detail: errorMessage,
+            });
+            console.error('Errore durante la chiamata POST:', errorMessage);
+          } else {
+            // Gestisci altri errori
+            this.errorMessages = ['Errore durante la chiamata POST'];
+            this.messageService.add({
+              severity: 'error',
+              summary: 'Errore',
+              detail: 'Errore durante la chiamata POST.',
+            });
+            console.error('Errore durante la chiamata POST:', error);
+          }
         }
-      }
-    );
+      );
 
     this.messageService.clear();
   }
