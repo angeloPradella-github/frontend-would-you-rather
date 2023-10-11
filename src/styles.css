@@ -81,7 +81,7 @@ body .main-btn {
   box-shadow: -5px 5px 40px rgba(0, 0, 0, 0.312);
 }
 
-@media screen and (max-width: 668px) {
+@media screen and (max-width: 724px) {
   :root {
     --p-content-global: 1rem;
   }
