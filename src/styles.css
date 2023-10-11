@@ -83,7 +83,7 @@ body .main-btn {
 
 @media screen and (max-width: 724px) {
   :root {
-    --p-content-global: 1rem;
+    --p-content-global: 0px;
   }
 
   .main-options-container {
