@@ -7,8 +7,8 @@
   </head>
   <body>
     <div class="body-container mx-auto">
-      <section class="hero-section d-flex">
-        <div class="col-md-6">
+      <section class="hero-section d-flex row">
+        <div class="col-10 col-md-6">
           <h1 class="bolder">Daily Quiz, Daily Bonus - Play today</h1>
           <h2>
             {{ siteName }} is the daily Trivia challenges and quiz playing
@@ -23,7 +23,9 @@
             <span class="bold text-white">Play Now</span>
           </a>
         </div>
-        <div class="col-md-6 d-flex justify-content-center align-items-center">
+        <div
+          class="col-2 col-md-6 d-flex justify-content-center align-md-items-center p-0"
+        >
           <img
             src="assets/images/flag-yellow.png"
             alt="Logo"
@@ -32,15 +34,15 @@
         </div>
       </section>
       <!-- ========================================================= -->
-      <section class="top-games-showcase d-flex">
-        <div class="col-md-4 showcase-left-col">
+      <section class="top-games-showcase d-flex row">
+        <div class="col-12 col-md-4 showcase-left-col py-2 p-md-0">
           <div class="text-wrap">
             <h3 class="text-white text-center bold">Most popular Games</h3>
             <p>Choose the option and go to the game of your choice</p>
           </div>
         </div>
         <div
-          class="col-md-8 showcase-right-col d-flex flex-column justify-content-evenly px-4 py-5 gap-4"
+          class="col-12 col-md-8 showcase-right-col d-flex flex-column justify-content-evenly px-4 py-5 gap-4"
         >
           <a href="/would-you-rather" class="card">
             <div class="title-wrap">

@@ -17,6 +17,9 @@ nav {
   max-width: var(--max-content-w);
   margin-inline: auto;
 }
+/*----------------------- */
+
+/*----------------------- */
 
 .user-icon {
   background-color: var(--clr-primary);
