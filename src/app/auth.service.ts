@@ -27,6 +27,18 @@ export class AuthService {
         })
       );
   }
+  googleLogin() {
+    // Invia la richiesta di login al server e gestisci la risposta
+    return this.http
+      .get('https://expressquizzbackend-production.up.railway.app/auth/google')
+      .pipe(
+        tap((response: any) => {
+          if (response.token) {
+            localStorage.setItem('token', response.token);
+          }
+        })
+      );
+  }
 
   register(user: any) {
     // Invia la richiesta di registrazione al server e gestisci la risposta

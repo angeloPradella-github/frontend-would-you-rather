@@ -25,6 +25,7 @@ export class LoginComponent {
   ) {}
 
   onSubmit() {
+    console.log('miao');
     this.authService
       .login(this.userData.email, this.userData.password)
       .subscribe(
@@ -55,5 +56,36 @@ export class LoginComponent {
           console.error('Errore durante la chiamata POST:', error);
         }
       );
+  }
+
+  googleAuth() {
+    this.authService.googleLogin().subscribe(
+      (response) => {
+        if (response) {
+          // environment.userData = response.user;
+          localStorage.setItem('userData', JSON.stringify(response.user));
+
+          this.router.navigate(['/']);
+        } else {
+          // Gestisci il caso in cui non ci sia un token valido
+          this.errorMessages = ['Eroore di Google'];
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: 'Eroore di Google.',
+          });
+        }
+      },
+      (error) => {
+        // Gestisci gli errori di login
+        this.errorMessages = ['Errore Chiamata POST'];
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Error',
+          detail: 'Errore durante la chiamata POST.',
+        });
+        console.error('Errore durante la chiamata POST:', error);
+      }
+    );
   }
 }

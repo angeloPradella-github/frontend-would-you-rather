@@ -86,9 +86,21 @@ body .main-btn {
     --p-content-global: 12px;
   }
 
-  .main-options-container {
+  nav .main-options-container {
     flex-direction: column;
-    display: none !important;
+    /* display: none !important; */
+    position: absolute;
+    top: 70px;
+    width: 100%;
+    left: 0;
+    align-items: center;
+    background-color: #2fb2abc9;
+    backdrop-filter: blur(10px) !important;
+    padding-block: 2rem;
+    gap: 15px !important;
+    z-index: 999;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
   }
 
   .login-container {
