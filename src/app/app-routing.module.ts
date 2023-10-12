@@ -36,7 +36,7 @@ const routes: Routes = [
     children: [{ path: '', component: RegisterComponent }],
   },
   {
-    path: 'auth-redirect',
+    path: 'google-auth-redirect',
     component: GoogleAuthRedirectComponent,
   },
 ];
