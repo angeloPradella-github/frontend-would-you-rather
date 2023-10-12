@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-google-auth-redirect',
@@ -7,7 +7,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./google-auth-redirect.component.css'],
 })
 export class GoogleAuthRedirectComponent implements OnInit {
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
     this.route.queryParams.subscribe((params) => {
@@ -26,7 +26,10 @@ export class GoogleAuthRedirectComponent implements OnInit {
         localStorage.getItem('userData')
       );
 
-      // Reindirizza l'utente alla pagina principale o ad un'altra pagina desiderata
+      // Esegui eventuali altre azioni di logout come reindirizzamento
+      this.router.navigate(['/']);
+      // Ricarica la pagina
+      location.reload();
     });
   }
 }
