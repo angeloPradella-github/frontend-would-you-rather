@@ -27,9 +27,9 @@ export class GoogleAuthRedirectComponent implements OnInit {
       );
 
       // Esegui eventuali altre azioni di logout come reindirizzamento
-      this.router.navigate(['/']);
-      // Ricarica la pagina
-      location.reload();
+      // this.router.navigate(['/']);
+      // // Ricarica la pagina
+      // location.reload();
     });
   }
 }
