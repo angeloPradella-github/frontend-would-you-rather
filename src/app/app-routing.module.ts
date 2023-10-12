@@ -8,6 +8,7 @@ import { AppLoginLayoutComponent } from './app-login-layout/app-login-layout.com
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './auth.guard';
 import { RegisterComponent } from './register/register.component';
+import { GoogleAuthRedirectComponent } from './google-auth-redirect/google-auth-redirect.component';
 
 const routes: Routes = [
   {
@@ -33,6 +34,10 @@ const routes: Routes = [
     path: 'register',
     component: AppLoginLayoutComponent,
     children: [{ path: '', component: RegisterComponent }],
+  },
+  {
+    path: 'auth-redirect',
+    component: GoogleAuthRedirectComponent,
   },
 ];
 

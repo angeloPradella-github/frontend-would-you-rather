@@ -27,6 +27,7 @@ import { MessagesModule } from 'primeng/messages';
 import { MessageService } from 'primeng/api';
 import { RegisterComponent } from './register/register.component';
 import { MenuModule } from 'primeng/menu';
+import { GoogleAuthRedirectComponent } from './google-auth-redirect/google-auth-redirect.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { MenuModule } from 'primeng/menu';
     AppLoginLayoutComponent,
     UserProfileComponent,
     RegisterComponent,
+    GoogleAuthRedirectComponent,
   ],
   imports: [
     BrowserModule,
