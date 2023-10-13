@@ -80,27 +80,55 @@ body .main-btn {
 .box-shadow {
   box-shadow: -5px 5px 40px rgba(0, 0, 0, 0.312);
 }
+.hamburger-menu {
+  font-size: 0;
+  display: none;
+}
 
 @media screen and (max-width: 724px) {
   :root {
     --p-content-global: 12px;
   }
 
+  .nav-open {
+    display: flex !important;
+  }
+
+  .nav-closed {
+    display: none !important;
+  }
+
   nav .main-options-container {
     flex-direction: column;
-    /* display: none !important; */
     position: absolute;
     top: 70px;
     width: 100%;
     left: 0;
     align-items: center;
-    background-color: #2fb2abc9;
+    background-color: #2fb2abea;
     backdrop-filter: blur(10px) !important;
     padding-block: 2rem;
     gap: 15px !important;
     z-index: 999;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.532);
+  }
+
+  .nav-logo-container {
+    display: none;
+  }
+
+  .hamburger-menu {
+    font-size: 1.4rem;
+    display: block;
+  }
+
+  .hamburger-menu-open {
+    border: 2px solid #2fb2ac;
+    border-radius: 50%;
+    padding: 8px;
+    transition: all 0.1s ease;
   }
 
   .login-container {

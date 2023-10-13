@@ -108,6 +108,22 @@ export class NavbarComponent implements OnInit {
     ];
   }
 
+  toggleMenu() {
+    const menu = document.querySelector<HTMLElement>('#mainOptionsContainer');
+    const hamburgerMenu = document.querySelector<HTMLElement>('#hamburgerMenu');
+
+    if (menu) {
+      hamburgerMenu?.classList.toggle('hamburger-menu-open');
+      if (menu.classList.contains('nav-closed')) {
+        menu.classList.remove('nav-closed');
+        menu.classList.add('nav-open');
+      } else {
+        menu.classList.remove('nav-open');
+        menu.classList.add('nav-closed');
+      }
+    }
+  }
+
   @HostListener('window:scroll', ['$event'])
   onWindowScroll(event: any): void {
     const yOffset = window.scrollY || document.documentElement.scrollTop || 0;
