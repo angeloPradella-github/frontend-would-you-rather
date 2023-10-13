@@ -171,7 +171,7 @@
 
   .wyr-container .circle {
     top: calc(100% - 34px) !important;
-    left: calc(50% - 34px) !important;
+    left: calc(50% - 22px) !important;
   }
 
   .switch-choice-type button {
@@ -218,5 +218,9 @@
   .wyr-container .left-col:hover h1,
   .wyr-container .right-col:hover h1 {
     transform: scale(1);
+  }
+
+  .switch-choice-type button:hover {
+    transform: translateY(0%) scale(1);
   }
 }
