@@ -214,4 +214,9 @@
   .agreeing-tot {
     font-size: 1.1rem;
   }
+
+  .wyr-container .left-col:hover h1,
+  .wyr-container .right-col:hover h1 {
+    transform: scale(1);
+  }
 }
