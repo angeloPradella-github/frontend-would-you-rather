@@ -9,10 +9,10 @@
     <section class="body-container mx-auto h-100 px-0">
       <h1 class="title">Would You Rather</h1>
 
-      <div class="row h-100">
+      <div class="row h-100 me-0">
         <!-- Colonna sinistra -->
         <div
-          class="col-md-6 d-flex align-items-center justify-content-center left-col ps-3 flex-column cursor-pointer"
+          class="left-column col-12 col-md-6 d-flex align-items-center justify-content-center left-col ps-0 pe-0 ps-md-3 flex-column cursor-pointer"
           (click)="updateData(1)"
         >
           <!-- SWITCH CHOICE TYPE GENERATION -->
@@ -55,7 +55,7 @@
         </div>
         <!-- Colonna destra -->
         <div
-          class="col-md-6 d-flex flex-column align-items-center justify-content-center right-col pe-3 cursor-pointer"
+          class="right-column col-12 col-md-6 d-flex flex-column align-items-center justify-content-center right-col pe-0 pe-md-3 cursor-pointer"
           (click)="updateData(2)"
         >
           <h1 class="right-choice-txt mb-0" *ngIf="!loading">

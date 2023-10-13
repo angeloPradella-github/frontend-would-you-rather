@@ -47,9 +47,15 @@ export class WouldYouRatherComponent implements OnInit {
     const divs = this.el.nativeElement.querySelectorAll(
       '.percentage-container'
     );
+    const screenWidth = window.innerWidth;
+
     divs.forEach((div: HTMLElement) => {
       const span = div.querySelector('span');
-      this.renderer.setStyle(span, 'font-size', '3.5rem');
+      if (screenWidth <= 724) {
+        this.renderer.setStyle(span, 'font-size', '2.3rem');
+      } else {
+        this.renderer.setStyle(span, 'font-size', '3.5rem');
+      }
     });
     //----------showing the number of people
     const agreeingH3s = this.el.nativeElement.querySelectorAll('.agreeing-tot');
