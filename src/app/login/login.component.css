@@ -29,6 +29,15 @@
   padding: 0px;
   box-sizing: border-box;
 }
+@media screen and (max-width: 724px) {
+  .wrap-login100 {
+    padding-inline: 20px !important;
+    padding-top: 30px !important;
+  }
+  .login100-form-title {
+    padding-bottom: 30px !important;
+  }
+}
 
 body,
 html {

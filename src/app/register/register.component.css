@@ -30,6 +30,27 @@
   box-sizing: border-box;
 }
 
+@media screen and (max-width: 724px) {
+  .wrap-login100 {
+    padding-inline: 20px !important;
+    padding-top: 30px !important;
+  }
+  .login100-form-title {
+    padding-bottom: 30px !important;
+  }
+
+  .login100-form {
+    display: flex !important;
+    flex-grow: 1 !important;
+  }
+
+  .input100 {
+    flex-grow: 1 !important;
+
+    width: 100% !important;
+  }
+}
+
 body,
 html {
   height: 100%;
