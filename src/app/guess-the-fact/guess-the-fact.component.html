@@ -6,14 +6,16 @@
     <title>Document</title>
   </head>
   <body id="gtfPage" class="gtf gtf-container">
-    <section class="body-container mx-auto h-100 px-0 pt-5">
-      <div class="title-dropdown-menu-container d-flex justify-content-between">
-        <h1>Guess the Fact</h1>
-        <div>
+    <section class="body-container mx-auto px-0 pt-5">
+      <div
+        class="row title-dropdown-menu-container d-flex justify-content-between"
+      >
+        <h1 class="col-12 col-md-6">Guess the Fact</h1>
+        <div class="col-12 fit-content col-md-6 options-container">
           <p-dropdown
             pTooltip="Change the AI Generated statements language"
             tooltipPosition="left"
-            class="shorter me-3"
+            class="shorter me-3 pe-0"
             [options]="languages"
             [(ngModel)]="selectedLanguage"
             optionLabel="name"
@@ -61,10 +63,10 @@
         statements, but there's a twist - only one of them is true! Select the
         only correct one.
       </h2>
-      <h3 class="mt-5 bold text-center topic-name">
+      <h3 class="mt-2 mt-md-5 bold text-center topic-name">
         <span>{{ selectedTopic?.name }}</span>
       </h3>
-      <div class="row facts-container justify-content-center">
+      <div class="row facts-container justify-content-center px-2">
         <div class="col-md-6 card-col pe-md-4">
           <article
             id="factBox1"

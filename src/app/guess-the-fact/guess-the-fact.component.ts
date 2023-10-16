@@ -48,7 +48,7 @@ export class GuessTheFactComponent {
       { name: 'Languages', code: 'LGS' },
       { name: 'Food', code: 'FD' },
       { name: 'Fitness', code: 'FTN' },
-      { name: 'Animal Kingdom', code: 'ANK' },
+      { name: 'Animals', code: 'ANK' },
       { name: 'Cinema', code: 'CNM' },
     ];
 

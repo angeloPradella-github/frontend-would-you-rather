@@ -166,3 +166,60 @@
   padding-block: 1rem;
   border-radius: 5px;
 }
+
+.fit-content {
+  width: fit-content;
+}
+
+@media screen and (max-width: 724px) {
+  .gtf-container h1 {
+    font-size: 3rem;
+  }
+  .gtf .options-container {
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+  }
+
+  .gtf .shorter {
+    width: 100px !important;
+  }
+
+  .p-dropdown.p-dropdown-clearable.p-dropdown-label {
+    padding-right: 0 !important;
+  }
+
+  .gtf-container h2 {
+    font-size: 1rem;
+    margin-top: 12px;
+  }
+
+  .gtf .topic-name span {
+    padding-inline: 1.5rem;
+    padding-block: 0.7rem;
+    border-radius: 5px;
+    font-size: 2rem;
+  }
+
+  .confirm-btn {
+    margin-top: 0px !important;
+  }
+
+  .next-question-btn {
+    margin-top: 0px !important;
+  }
+
+  .gtf .explanation {
+    width: 95%;
+    margin-top: 2rem;
+    font-size: 1.2rem;
+    color: #3b3b3bc1;
+    padding-bottom: 3rem;
+    transition: all 0.3s ease;
+  }
+
+  .gtf .explanation p {
+    padding-inline: 4px;
+    padding-block: 1rem;
+  }
+}
