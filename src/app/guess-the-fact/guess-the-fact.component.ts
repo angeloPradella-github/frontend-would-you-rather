@@ -95,7 +95,6 @@ export class GuessTheFactComponent {
         `https://wouldyouratherbackend-production.up.railway.app/GetAIFourQuestions?language=${language}&topic=${this.selectedTopic?.name}`
       )
       .subscribe((data: any) => {
-        console.log(data);
         // Creare un array con le domande
         let questionsArray = [
           data.question_text1,
