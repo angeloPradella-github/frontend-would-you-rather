@@ -104,7 +104,6 @@ export class GuessTheFactComponent {
           data.question_text4,
         ];
         let newCorrectIndex = Math.floor(Math.random() * 4);
-        console.log('i:' + newCorrectIndex);
 
         let temp = questionsArray[newCorrectIndex];
         questionsArray[newCorrectIndex] = questionsArray[0];
