@@ -61,6 +61,7 @@ export class GuessTheFactComponent {
 
     this.page = document.querySelector('#gtfPage');
     this.factBoxes = document.querySelectorAll('.fact-box');
+
     this.getAnswersAndShow();
     this.confirmBtn = this.page!.querySelector('#confirmBtn');
     this.nextQuestionsBtn = this.page!.querySelector('#nextQuestionsBtn');
@@ -71,7 +72,6 @@ export class GuessTheFactComponent {
     let factBox: HTMLElement = document.getElementById(factID)!;
     let oldFactBox: HTMLCollectionOf<Element> | null =
       document.getElementsByClassName('hold-answer');
-    console.log(this.page);
 
     Array.from(oldFactBox).forEach((el) => {
       el.classList.remove('hold-answer');
@@ -86,6 +86,7 @@ export class GuessTheFactComponent {
   getAnswersAndShow() {
     this.loading = true;
     let language;
+
     if (this.selectedLanguage == undefined) language = 'english';
     else language = this.selectedLanguage.name;
 
@@ -94,7 +95,30 @@ export class GuessTheFactComponent {
         `https://wouldyouratherbackend-production.up.railway.app/GetAIFourQuestions?language=${language}&topic=${this.selectedTopic?.name}`
       )
       .subscribe((data: any) => {
+        console.log(data);
+        // Creare un array con le domande
+        let questionsArray = [
+          data.question_text1,
+          data.question_text2,
+          data.question_text3,
+          data.question_text4,
+        ];
+        let newCorrectIndex = Math.floor(Math.random() * 4);
+        console.log('i:' + newCorrectIndex);
+
+        let temp = questionsArray[newCorrectIndex];
+        questionsArray[newCorrectIndex] = questionsArray[0];
+        questionsArray[0] = temp;
+
+        // Assegnare le domande mescolate alle variabili
         this.jsonData = data;
+        this.jsonData.question_text1 = questionsArray[0];
+        this.jsonData.question_text2 = questionsArray[1];
+        this.jsonData.question_text3 = questionsArray[2];
+        this.jsonData.question_text4 = questionsArray[3];
+        this.jsonData.right_answer = newCorrectIndex;
+
+        //console.log(this.jsonData);
         this.loading = false;
       });
   }
@@ -102,9 +126,10 @@ export class GuessTheFactComponent {
   confirmAnswer() {
     let correctAnsIndex: number = this.jsonData.right_answer;
     this.factBoxes!.forEach((el, i) => {
-      if (i == correctAnsIndex - 1) el.classList.add('correct-answer');
+      if (i == correctAnsIndex) el.classList.add('correct-answer');
       else el.classList.add('wrong-answer');
     });
+
     this.confirmBtn?.classList.toggle('d-none');
     this.nextQuestionsBtn?.classList.toggle('d-none');
     this.explanationBox?.classList.toggle('scale-transition');
